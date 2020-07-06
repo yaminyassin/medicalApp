@@ -1,29 +1,86 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Vital
+      Continuous Thermometer
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">  
-  <ion-button expand="block" size="large" >
-    <ion-img [src]="image"></ion-img>
-  </ion-button>
 
   <div>
+      <ion-card color='vibrant' class="profile">
+        <ion-row>
+          <ion-col>
+          <img src="{{image}}" class='picture'>
+          </ion-col> 
+          <ion-col>
+            <p>
+              <a class='idk'><strong>Name:  </strong></a>
+              <a class='idk'>Jane Doe</a>
+            </p>
+            <p>
+              <a class='idk'><strong>Age:  </strong></a>
+              <a class='idk'>45</a>
+            </p>
+            <p>
+              <a class='idk'><strong>Weight:  </strong></a>
+              <a class='idk'>80Kg</a>
+            </p>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+  </div>
+
+  <div>
+
     <ion-card>
       <ion-card-header>
-        Line Chart
+        Temperature (°C)
       </ion-card-header>
       <ion-card-content>
         <canvas #lineCanvas=""></canvas>
       </ion-card-content>
     </ion-card>
-    <ion-fab edge=false vertical='bottom' horizontal='center'>
-      <ion-fab-button>
-        <ion-icon name="thermometer-outline" (click)= 'getData()'></ion-icon>
-      </ion-fab-button>
-    </ion-fab>
+
+    <ion-card color=vibrant>
+      <ion-card-header>
+        <strong>Current Temperature:</strong>
+      </ion-card-header>
+      <ion-card-content>
+        {{currentTemperature}}
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card color=vibrant>
+      <ion-card-header>
+        <strong>Previous Temperature:</strong>
+      </ion-card-header>
+      <ion-card-content>
+        {{previousTemperature}}
+      </ion-card-content>
+    </ion-card>
+
   </div>
+  
+
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+
+
+  
+      <ion-fab-button *ngIf='hasExited' (click)='getData()'>
+        <ion-icon name="thermometer-outline"></ion-icon>
+      </ion-fab-button>
+
+      <ion-fab-button *ngIf='hasStarted' (click)='stopData()'>
+        <ion-icon name="close-sharp"></ion-icon>
+      </ion-fab-button>
+
+
+  </ion-fab>
+
 </ion-content>
+
+<ion-footer>
+</ion-footer>

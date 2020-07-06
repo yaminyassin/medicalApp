@@ -1,9 +1,31 @@
 
+.profile{
+  margin: 0px  !important;
+}
+.idk{
+  color: black;
+}
+.picture{
+  width: 80px;
+  padding-top: 15px;
+}
 
 ion-button {
   --background: #ff6384;
+  height: 150px !important;
+  
 }
 
 ion-fab-button{
-  --background:#ff6384;
+  --background:#155b83;
+}
+
+.ion-color-vibrant {
+  --ion-color-base: #ff6384;
+  --ion-color-base-rgb: 255,255,0;
+  --ion-color-contrast: #000000;
+  --ion-color-contrast-rgb: 0,0,0;
+  --ion-color-shade: #e0e000;
+  --ion-color-tint: #ffff1a;
+
 }

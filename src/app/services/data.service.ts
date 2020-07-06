@@ -17,6 +17,7 @@ export class DataService {
   getSumData(){
     return this.db.object(`ESP32_Device/IRTemperature/ContinuousDataRT`).valueChanges();
   }
+
  
 
 
